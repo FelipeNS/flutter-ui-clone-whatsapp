@@ -158,6 +158,43 @@ class Status extends StatelessWidget {
               ],
             ),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.all(15.0),
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      width: 48.0,
+                      height: 48.0,
+                      child: FloatingActionButton(
+                        backgroundColor: Color(0xFFEEEEEE),
+                        child: Center(
+                          child: Icon(
+                            Icons.edit,
+                            color: Color(0xFF085F61),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 20.0),
+                      child: FloatingActionButton(
+                        backgroundColor: Theme.of(context).accentColor,
+                        child: Center(
+                          child: Icon(
+                            Icons.camera_alt,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
