@@ -7,8 +7,11 @@ class Chat extends StatelessWidget {
   String date;
   int messages;
   bool read;
+  bool last;
 
-  Chat(this.image, this.name, this.lastMessage, this.date, this.messages, this.read);
+  Chat(this.image, this.name, this.lastMessage, this.date, this.messages, this.read, this.last);
+  
+  bool notNull(Object o) => o != null;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class Chat extends StatelessWidget {
                 padding: EdgeInsets.all(15.0),
                 child: CircleAvatar(
                   backgroundImage: AssetImage(this.image),
-                  radius: 28,
+                  radius: 28.0,
                 ),
               ),
               Expanded(
@@ -30,14 +33,14 @@ class Chat extends StatelessWidget {
                     top: 15.0,
                     bottom: 15.0,
                   ),
-                  decoration: BoxDecoration(
+                  decoration: !this.last ? BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
-                        width: 0.5,
                         color: Color(0xFFDDDDDD),
+                        width: 0.5,
                       ),
                     ),
-                  ),
+                  ) : null,
                   margin: EdgeInsets.only(right: 15.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -68,9 +71,13 @@ class Chat extends StatelessWidget {
                         ],
                       ),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
                           Container(
-                            margin: EdgeInsets.only(top: 3.0),
+                            margin: EdgeInsets.only(
+                              top: 4.0,
+                              bottom: 5.0,
+                            ),
                             child: Text(
                               this.date,
                               style: TextStyle(
@@ -80,7 +87,24 @@ class Chat extends StatelessWidget {
                               ),
                             ),
                           ),
-                        ],
+                          !this.read ? Container(
+                            width: 20.0,
+                            height: 20.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                              color: Theme.of(context).accentColor,
+                            ),
+                            child: Center(
+                              child: Text(
+                                this.messages.toString(),
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ) : null,
+                        ].where(notNull).toList(),
                       )
                     ],
                   ),

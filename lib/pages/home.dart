@@ -39,9 +39,39 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           indicatorColor: Colors.white,
           tabs: <Widget>[
             Tab(icon: Icon(Icons.camera_alt), ),
-            Tab(text: 'CHATS'),
-            Tab(text: 'STATUS'),
-            Tab(text: 'CALLS'),
+            Tab(
+              child: Container(
+                child: Text(
+                  'CHATS',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
+              ),
+            ),
+            Tab(
+              child: Container(
+                child: Text(
+                  'STATUS',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
+              ),
+            ),
+            Tab(
+              child: Container(
+                child: Text(
+                  'CALLS',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -54,14 +84,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             Status(),
             Calls(),
           ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: null,
-        backgroundColor: Theme.of(context).accentColor,
-        child: Icon(
-          Icons.message,
-          color: Colors.white,
         ),
       ),
     );
