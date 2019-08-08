@@ -82,7 +82,6 @@ class Chat extends StatelessWidget {
                               this.date,
                               style: TextStyle(
                                 fontSize: 14.0,
-                                fontWeight: FontWeight.w400,
                                 color: Color(0xFF888888),
                               ),
                             ),
